@@ -2,13 +2,13 @@ runtime: python39
 service: notes-123230172-fe 
 
 handlers:
-url: /
-static_files: index.html
-upload: index.html
+- url: /
+  static_files: index.html
+  upload: index.html
 
-url: /(.)
-static_files: \1
-upload: (.)
+- url: /(.*)
+  static_files: \1
+  upload: (.*)
 
 automatic_scaling:
   target_cpu_utilization: 0.65
