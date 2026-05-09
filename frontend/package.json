@@ -1,0 +1,12 @@
+{
+  "name": "tugas2-notes-frontend",
+  "version": "1.0.0",
+  "description": "Frontend untuk aplikasi notes",
+  "scripts": {
+    "start": "serve -s .",
+    "dev": "serve -s . -l 3001"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
