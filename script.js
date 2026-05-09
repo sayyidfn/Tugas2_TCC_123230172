@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:3000/notes";
+const apiUrl = "https://be-tugas3-tcc-172-325409493725.us-central1.run.app/notes";
 const noteForm = document.getElementById("noteForm");
 const notesList = document.getElementById("notesList");
 const noteIdInput = document.getElementById("noteId");
