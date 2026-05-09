@@ -1,20 +1,16 @@
-require("dotenv").config();
-const mysql = require("mysql2");
+const { Sequelize } = require('sequelize');
 
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  ssl: { rejectUnauthorized: false },
-});
+require('dotenv').config();
 
-db.connect((err) => {
-  if (err) {
-    console.error("Koneksi ke Cloud SQL gagal:", err);
-    return;
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
+  {
+    host: process.env.DB_HOST,
+    dialect: 'mysql',
+    logging: false,
   }
-  console.log("Berhasil terhubung ke database Cloud SQL!");
-});
+);
 
-module.exports = db;
+module.exports = sequelize;
