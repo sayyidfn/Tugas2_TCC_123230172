@@ -48,3 +48,15 @@ exports.deleteNote = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.getNoteById = async (req, res) => {
+  try {
+    const note = await NoteModel.findById(req.params.id);
+    if (!note) {
+      return res.status(404).json({ message: "Catatan tidak ditemukan" });
+    }
+    res.json(note);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
