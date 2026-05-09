@@ -1,33 +1,36 @@
-const db = require("../config/database");
+// Ambil file schema yang kamu buat sebelumnya
+const Note = require("../schema/noteSchema"); // Pastikan nama file/foldernya sesuai ya
 
-const Note = {
-  // Mengambil semua data notes
-  getAll: (callback) => {
-    db.query("SELECT * FROM notes", callback);
-  },
-
-  // Menambahkan note baru
-  create: (data, callback) => {
-    db.query(
-      "INSERT INTO notes (title, datetime, note) VALUES (?, ?, ?)",
-      [data.title, data.datetime, data.note],
-      callback,
-    );
-  },
-
-  // Mengubah note berdasarkan ID
-  update: (id, data, callback) => {
-    db.query(
-      "UPDATE notes SET title = ?, datetime = ?, note = ? WHERE id = ?",
-      [data.title, data.datetime, data.note, id],
-      callback,
-    );
-  },
-
-  // Menghapus note berdasarkan ID
-  delete: (id, callback) => {
-    db.query("DELETE FROM notes WHERE id = ?", [id], callback);
-  },
+const findAll = async () => {
+  return await Note.findAll({
+    order: [["tanggal_dibuat", "DESC"]], // Mengurutkan dari yang terbaru
+  });
 };
 
-module.exports = Note;
+const create = async (noteData) => {
+  return await Note.create(noteData);
+};
+
+const findById = async (id) => {
+  return await Note.findByPk(id);
+};
+
+const updateById = async (id, noteData) => {
+  return await Note.update(noteData, {
+    where: { id: id },
+  });
+};
+
+const deleteById = async (id) => {
+  return await Note.destroy({
+    where: { id: id },
+  });
+};
+
+module.exports = {
+  findAll,
+  create,
+  findById,
+  updateById,
+  deleteById,
+};
