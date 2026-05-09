@@ -1,17 +1,6 @@
 runtime: nodejs20
 service: notes-123230172-tugas3
 
-handlers:
-# 1. Mengarahkan link root (/) langsung ke index.html
-- url: /
-  static_files: index.html
-  upload: index.html
-
-# 2. Mengizinkan pembacaan file pendukung (seperti style.css & script.js)
-- url: /(.*)
-  static_files: \1
-  upload: (.*)
-
 # Tambahkan ini supaya hemat (untuk testing)
 automatic_scaling:
   target_cpu_utilization: 0.65
