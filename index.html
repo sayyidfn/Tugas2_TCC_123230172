@@ -1,29 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aplikasi Notes</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <h1>Catatan Mpruy</h1>
+      <header class="app-header">
+        <h1>Catatan Mpruy</h1>
+        <p class="subtitle">Kelola tugas dan ide Anda dengan mudah</p>
+      </header>
 
-      <form id="noteForm">
-        <input type="hidden" id="noteId" />
+      <div class="form-card">
+        <form id="noteForm">
+          <input type="hidden" id="noteId" />
 
-        <input type="text" id="judul" placeholder="Judul Catatan" required />
+          <div class="form-group">
+            <label for="judul">Judul Catatan</label>
+            <input type="text" id="judul" placeholder="Masukkan judul..." required />
+          </div>
 
-        <textarea id="isi" placeholder="Isi catatan..." required></textarea>
+          <div class="form-group">
+            <label for="isi">Detail Catatan</label>
+            <textarea id="isi" placeholder="Tuliskan isi catatan Anda di sini..." required></textarea>
+          </div>
 
-        <button type="submit" id="saveBtn">Simpan Catatan</button>
-        <button type="button" id="cancelBtn" style="display: none">
-          Batal Edit
-        </button>
-      </form>
+          <div class="form-actions">
+            <button type="submit" id="saveBtn" class="btn-primary">Simpan Catatan</button>
+            <button type="button" id="cancelBtn" class="btn-secondary" style="display: none">
+              Batal Edit
+            </button>
+          </div>
+        </form>
+      </div>
 
-      <div id="notesList"></div>
+      <div class="notes-header">
+        <h2>Daftar Catatan</h2>
+      </div>
+
+      <div id="notesList" class="notes-grid"></div>
     </div>
 
     <script src="script.js"></script>
