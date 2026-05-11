@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+>>>>>>> ae5d0010c0e295808e32fff7804d39f61f9e591c
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -14,7 +18,11 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+<<<<<<< HEAD
     "mysql2": "^3.22.3",
+=======
+    "mysql2": "^3.20.0",
+>>>>>>> ae5d0010c0e295808e32fff7804d39f61f9e591c
     "sequelize": "^6.37.8"
   },
   "devDependencies": {
